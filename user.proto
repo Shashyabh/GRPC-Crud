@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package mygo;
+
+option go_package = "./";
+
+
+message User {
+    string id = 1;
+    string name = 2;
+    int64 salary = 3;
+    string department = 4;
+    Address address = 5;
+}
+
+message Address{
+    string id = 1;
+    string city = 2;
+    string state = 3;
+}
+
+message CreateUserRequest {
+    string name = 2;
+    int64 salary = 3;
+    string department = 4;
+    Address address = 5;
+}
+
+message CreateUserResponse {
+    User user =1;
+}
+
+message GetUserRequest {
+    string id = 1;
+}
+
+message GetUserResponse {
+    User user = 1;
+}
+
+message GetAllUsersRequest {
+
+}
+
+message GetAllUsersResponse {
+    repeated User user = 1;
+}
+
+message CreateAddressRequest {
+    string city = 2;
+    string state = 3;
+}
+
+message CreateAddressResponse{
+    Address Address = 1;
+}
+
+message GetAddressRequest {
+    string id = 1;
+}
+
+message GetAddressResponse{
+    Address Address = 1;
+}
+
+
+service UserGrpcService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse){
+
+    }
+
+    rpc GetUser(GetUserRequest) returns (GetUserResponse){
+
+    }
+
+    rpc GetAllUser(GetAllUsersRequest) returns (GetAllUsersResponse){
+
+    }
+
+    rpc CreateAddress(CreateAddressRequest) returns (CreateAddressResponse){
+
+    }
+
+    rpc GetAddress (GetAddressRequest) returns (GetAddressResponse){
+        
+    }
+}
+
