@@ -3,7 +3,8 @@
 ### Run command main.go
 ### Open Postman & Choose for the GRPC Req
 ### Make request along with proper fields
-```{
+```
+{
   "name": " srk",
   "salary": 50000,
   "department": "Engineering",
