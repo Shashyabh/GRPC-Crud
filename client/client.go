@@ -15,6 +15,7 @@ type Client struct {
 	conn *grpc.ClientConn
 	service pb.UserGrpcServiceClient
 }
+//protoc --go_out=proto --go-grpc_out=proto user.proto   
 
 func NewClient(url string) (*Client, error) {
 	conn, err := grpc.NewClient(url,grpc.WithTransportCredentials(insecure.NewCredentials()))
@@ -28,7 +29,7 @@ func NewClient(url string) (*Client, error) {
 	return &Client{conn, ser},nil
 }
 
-func (c *Client) CreateUser(ctx context.Context,id,name string, salary int64,department,address_id string)(*models.User,error){
+func (c *Client) CreateUser(ctx context.Context,name string, salary int64,department,address_id string)(*models.User,error){
 	user, err := c.service.CreateUser(
 		ctx,
 		&pb.CreateUserRequest{

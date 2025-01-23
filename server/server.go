@@ -31,7 +31,7 @@ func ListenGRPC (s ser.UserService, address string) error {
 		UnimplementedUserGrpcServiceServer: pb.UnimplementedUserGrpcServiceServer{},
 		service: s,
 	} )
-	return serv.Serve(lis)
+	return serv.Serve(lis) 
 }
 
 func (s *grpcServer) CreateUser(ctx context.Context, r *pb.CreateUserRequest)(*pb.CreateUserResponse,error){
