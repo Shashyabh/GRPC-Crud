@@ -20,3 +20,12 @@ Create Request For User
   }
 }
 ```
+
+```CREATE TABLE users (
+    id VARCHAR(36) PRIMARY KEY, -- Use a VARCHAR to store UUIDs
+    name VARCHAR(255) NOT NULL,
+    salary BIGINT NOT NULL,
+    department VARCHAR(255) NOT NULL,
+    address_id VARCHAR(36) -- Assuming addresses also use UUIDs
+);
+```
